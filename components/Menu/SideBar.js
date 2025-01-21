@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { menuItems } from "@/utils/data";
 
-const CircularMenu = ({ isHomepage }) => {
+const CircularMenu = ({ isHomepage, footer }) => {
   const circleRef = useRef(null);
   const radiusMultiplier = 0.4;
   const totalArea = 90; // Half-circle area in degrees
@@ -53,7 +53,7 @@ const CircularMenu = ({ isHomepage }) => {
     }
   }, [isHomepage]);
 
-  if (isHomepage) {
+  if (isHomepage && !footer) {
     // Render a vertical menu for the homepage
     return (
       <div className="absolute top-0 h-screen z-40 flex justify-center items-center gap-4 left-[0px]">
@@ -74,13 +74,13 @@ const CircularMenu = ({ isHomepage }) => {
     </div>
     );
   }
-
+  
   // Render the circular menu for other pages
   return (
     // <div ref={circleRef} className="-left-[390px] top-[50px] absolute">
-    <div className="-left-[390px] top-[50px] z-40 flex justify-center items-center gap-4 absolute">
+    <div className="-left-[380px] top-[80px] z-40  justify-center items-center gap-4 absolute">
       {menuItems.map((item, index) => (
-        <a
+        <Link
           key={index}
           id={`link-${index}`}
           href={item.url}
@@ -90,7 +90,7 @@ const CircularMenu = ({ isHomepage }) => {
           }}
         >
           {item.label}
-        </a>
+        </Link>
       ))}
     </div>
   );

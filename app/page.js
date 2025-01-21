@@ -6,6 +6,7 @@ import Share from "@/components/SocialMedia/Share";
 import Sidebar from "@/components/Menu/SideBar";
 // import Lottie from "lottie-react";
 import WhistleLogo from "@/public/Whistle_large_logo.json"; // Ensure the path is correct
+import Footer from '@/components/Footer/Footer';
 // Dynamically import Lottie with SSR disabled
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
@@ -15,6 +16,7 @@ const App = () => {
   const [showSidebar, setShowSidebar] = useState(false); // State for controlling sidebar visibility
   const introVideoRef = useRef(null);
   const rotationVideoRef = useRef(null);
+  const [footer, setFooter] = useState(false); // State for Footer visibility
 
   // Play rotation video after intro finishes
   const handleVideoEnd = () => {
@@ -46,6 +48,11 @@ const App = () => {
       }
     }
   }, [videoFinished]);
+
+  const toggleFooter = () => {
+    setFooter(!footer);
+};
+
 
   return (
     <div className="relative h-screen overflow-hidden bg-black">
@@ -93,6 +100,7 @@ const App = () => {
       {showSidebar && <Sidebar className="translate-x-0 transition-transform duration-1000 z-50" isHomepage={true} />}
       {/* <Sidebar /> */}
       <Share />
+      <Footer toggleFooter={toggleFooter} />
     </div>
   );
 };
