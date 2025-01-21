@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 
-function page() {
+function Page() {
 
   const [showContent, setShowContent] = useState(false); // State for controlling sidebar visibility
 
@@ -27,4 +27,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

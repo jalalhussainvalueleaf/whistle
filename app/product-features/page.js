@@ -6,7 +6,7 @@ import SideMenu from "@/components/Menu/Menu"
 import Footer from '@/components/Footer/Footer';
 import Slider from "@/components/Slider"
 
-export default function RootLayout({children}) {
+function Page() {
 
   const [videoFinished, setVideoFinished] = useState(false);
   const introVideoRef = useRef(null);
@@ -87,3 +87,4 @@ export default function RootLayout({children}) {
       </div>
   );
 }
+export default Page

@@ -8,7 +8,7 @@ import Footer from '@/components/Footer/Footer';
 import {articlesLists} from "@/utils/data"
 
 
-export default function RootLayout({children}) {
+function Page() {
   const [videoFinished, setVideoFinished] = useState(false);
   const introVideoRef = useRef(null);
   const rotationVideoRef = useRef(null);
@@ -132,3 +132,5 @@ export default function RootLayout({children}) {
       </div>
   );
 }
+
+export default Page

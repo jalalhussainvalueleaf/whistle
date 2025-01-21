@@ -69,7 +69,7 @@ const Slider = () => {
         {data.map((item, index) => (
             <li
             className={` ${index === activeIndex ? "text-wlOrange font-semibold text-lg" : "text-white text-lg"} transition-all duration-300 ease-in-out`}
-            >{item.title}</li>
+            key={index}>{item.title}</li>
         ))}
  
         </ul>

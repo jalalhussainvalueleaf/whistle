@@ -5,7 +5,7 @@ import Sidebar from "@/components/Menu/SideBar"
 import SideMenu from "@/components/Menu/Menu"
 import Footer from '@/components/Footer/Footer';
 
-export default function RootLayout({children}) {
+function Page() {
 
   const [videoFinished, setVideoFinished] = useState(false);
   const introVideoRef = useRef(null);
@@ -95,7 +95,7 @@ export default function RootLayout({children}) {
         </div>
         <ul className='list-disc list-inside space-y-4'>
   <li><strong className='text-wlOrange font-semibold'>Reliable Platform</strong> - Trust in seamless communication with our dependable A2P and RCS Messaging Services.</li>
-  <li><strong className='text-wlOrange font-semibold'>Strong Data Security (Robust Infosec)</strong> - Your data's protection is our top priority, ensuring peace of mind.</li>
+  <li><strong className='text-wlOrange font-semibold'>Strong Data Security (Robust Infosec)</strong> - Your data&apos;s protection is our top priority, ensuring peace of mind.</li>
   <li><strong className='text-wlOrange font-semibold'>Remarkable 24/7 Support</strong> - Assistance whenever you need it, with our dedicated team.</li>
   <li><strong className='text-wlOrange font-semibold'>Proven Delivery Rate</strong> - Count on us for high delivery rates and timely message distribution.</li>
   <li><strong className='text-wlOrange font-semibold'>Fallback Mechanism</strong> - Our system is designed for uninterrupted messaging, always ensuring successful delivery.</li>
@@ -104,7 +104,7 @@ export default function RootLayout({children}) {
   <li><strong className='text-wlOrange font-semibold'>Easy Access to Reports</strong> - Detailed analytics at your fingertips, offering valuable campaign insights.</li>
   <li><strong className='text-wlOrange font-semibold'>Extended DLT Support</strong> - Comply effortlessly with regulatory requirements using our extensive DLT support.</li>
 </ul>
-<p>Drive your business forward with Whistle's A2P Messaging Services: Increase conversions, foster customer loyalty through interactive messaging and facilitate secure payments - all while gaining valuable insights from comprehensive analytics and real-time delivery reports. Elevate your communication game and stay ahead of the competition!</p>
+<p>Drive your business forward with Whistle&apos;s A2P Messaging Services: Increase conversions, foster customer loyalty through interactive messaging and facilitate secure payments - all while gaining valuable insights from comprehensive analytics and real-time delivery reports. Elevate your communication game and stay ahead of the competition!</p>
 <ul className='list-disc list-inside space-y-4'>
   <li><strong className='text-wlOrange font-semibold'>Drive Conversions</strong> - Experience effective SMS campaigns that generate more revenue.</li>
   <li><strong className='text-wlOrange font-semibold'>Strengthen Relationships</strong> - Interact with customers through interactive messaging, building lasting connections.</li>
@@ -112,7 +112,7 @@ export default function RootLayout({children}) {
   <li><strong className='text-wlOrange font-semibold'>Measure Performance</strong> - Gain valuable insights with comprehensive campaign analytics.</li>
   <li><strong className='text-wlOrange font-semibold'>Real-Time Reports</strong> - Get instant delivery updates for every message sent.</li>
 </ul>
-<p>Ready to revolutionize your communication? Contact us now and let's explore how Whistle can transform your customer communication!</p>
+<p>Ready to revolutionize your communication? Contact us now and let&apos;s explore how Whistle can transform your customer communication!</p>
 
       </div>
       </div>}
@@ -124,3 +124,5 @@ export default function RootLayout({children}) {
       </div>
   );
 }
+
+export default Page
