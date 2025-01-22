@@ -19,7 +19,7 @@ function Page() {
   useEffect(() => {
       setTimeout(() => {
         setShowContent(true); // Show Sidebar with animation
-      }, 100); // Delay for smooth effect
+      }, 5000); // Delay for smooth effect
   });
 
 
@@ -28,7 +28,7 @@ function Page() {
 
     setTimeout(() => {
       setShowContent(true); // Show Sidebar with animation
-    }, 100); // Delay for smooth effect
+    }, 5000); // Delay for smooth effect
 
 
       setTimeout(() => {
@@ -82,7 +82,7 @@ function Page() {
 
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full h-[500px] overflow-scroll">
   <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10">
+    <thead className="text-xs text-gray-100 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10">
       <tr>
         <th scope="col" className="px-6 py-3">
           Publication
@@ -99,7 +99,7 @@ function Page() {
       {articlesLists.map((article, index) => (
         <tr
           key={index}
-          className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+          className="odd:bg-gray-300 odd:dark:bg-gray-900 even:bg-gray-200 even:dark:bg-gray-800 border-b dark:border-gray-700"
         >
           <th
             scope="row"

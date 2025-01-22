@@ -1,13 +1,16 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useFormValidation } from "@/hooks/useValidation";
 import Button from "@/components/Common/Button";
 import Input from "@/components/Common/Input";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
+
+let emailValidationTimeout; // To debounce email validation
 
 export default function Login() {
   const [isEmailValid, setIsEmailValid] = useState(false); // Track email validity
   const [isPasswordEntered, setIsPasswordEntered] = useState(false); // Track password entry
+  const [delayedEmailError, setDelayedEmailError] = useState(""); // Store the delayed email error
 
   const {
     handleSubmit,
@@ -15,19 +18,25 @@ export default function Login() {
     setValue,
     watch,
     trigger,
+    getFieldState,
   } = useFormValidation(["user_name", "email", "password"]);
 
-  // Memoized input change handler
   const handleInputChange = useCallback(
     (field) => async (event) => {
       const { value } = event.target;
       setValue(field, value);
-      await trigger(field);
 
-      // Check email validation
+      // Debounce email validation
       if (field === "email") {
-        const isValid = await trigger("email");
-        setIsEmailValid(isValid);
+        clearTimeout(emailValidationTimeout);
+        emailValidationTimeout = setTimeout(async () => {
+          const isValid = await trigger("email");
+          setIsEmailValid(isValid);
+
+          // Update delayed error message
+          const emailState = getFieldState("email");
+          setDelayedEmailError(emailState.error?.message || "");
+        }, 500); // Adjust the debounce delay as needed
       }
 
       // Check password entry
@@ -35,7 +44,7 @@ export default function Login() {
         setIsPasswordEntered(value.trim().length > 0);
       }
     },
-    [setValue, trigger]
+    [setValue, trigger, getFieldState]
   );
 
   // Form submission handler
@@ -60,7 +69,7 @@ export default function Login() {
         placeholder="Personal Email Address"
         value={watch("email") || ""}
         onChange={handleInputChange("email")}
-        error={errors.email?.message}
+        error={delayedEmailError} // Show the delayed error message
         aria-label="Email Address"
       />
 

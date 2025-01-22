@@ -1,9 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { menuItems } from "@/utils/data";
+import { usePathname } from "next/navigation";
 
 const CircularMenu = ({ isHomepage, footer }) => {
+  const pathname = usePathname();
   const circleRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(null); // Track the active menu index
   const radiusMultiplier = 0.4;
   const totalArea = 90; // Half-circle area in degrees
 
@@ -19,10 +22,6 @@ const CircularMenu = ({ isHomepage, footer }) => {
       if (circle) {
         circle.style.width = `${radius}px`;
         circle.style.height = `${radius}px`;
-        // circle.style.backgroundColor = "yellow";
-        // circle.style.position = "absolute";
-        // circle.style.borderRadius = "50%";
-        // circle.style.border = "2px solid red";
       }
 
       // Style the links dynamically
@@ -53,41 +52,47 @@ const CircularMenu = ({ isHomepage, footer }) => {
     }
   }, [isHomepage]);
 
+  const handleMenuClick = (index) => {
+    setActiveIndex(index); // Set the clicked menu item as active
+  };
+
   if (isHomepage && !footer) {
     // Render a vertical menu for the homepage
     return (
       <div className="absolute top-0 h-screen z-40 flex justify-center items-center gap-4 left-[0px]">
-      <ul className="space-y-4 p-6 gap-4">
-        {menuItems.map((item, index) => (
-          <li className={`space-y-4 text-white w-full translate-y-5 animate-fade-up rounded-full px-2 py-2 opacity-0 hover:bg-wlOrange ${index + 1 * 100}`}
-          style={{ animationDelay: `${index * 200}ms` }}
-          key={index}
-          >
-          <Link href={item.url}>
-          {/* <li className="text-white pl-2">{item.label}</li> */}
-          {item.label}
-          </Link>
-          </li>
-        ))}
-        
-      </ul>
-    </div>
+        <ul className="space-y-4 p-6 gap-4">
+          {menuItems.map((item, index) => (
+            <li
+              key={index}
+              className={`space-y-4 text-white w-full translate-y-5 animate-fade-up rounded-full px-2 py-2 opacity-0 hover:bg-wlOrange ${
+                index + 1 * 100
+              } ${activeIndex === index ? "bg-wlOrange" : ""}`} // Highlight active menu
+              style={{ animationDelay: `${index * 200}ms` }}
+              onClick={() => handleMenuClick(index)} // Set active menu on click
+            >
+              <Link href={item.url}>{item.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
-  
+
   // Render the circular menu for other pages
   return (
-    // <div ref={circleRef} className="-left-[390px] top-[50px] absolute">
-    <div className="-left-[380px] top-[80px] z-40  justify-center items-center gap-4 absolute">
+    <div className="-left-[380px] top-[80px] z-40 justify-center items-center gap-4 absolute">
       {menuItems.map((item, index) => (
         <Link
           key={index}
           id={`link-${index}`}
           href={item.url}
-          className={`space-y-4 text-white w-[180px] translate-y-5 animate-fade-up rounded-full px-2 py-2 opacity-0 hover:bg-wlOrange`}
+          className={`space-y-4 text-white w-[180px] translate-y-5 animate-fade-up rounded-full px-2 py-2 opacity-0 hover:bg-wlOrange ${pathname === item.url?'bg-wlOrange':''} ${
+            activeIndex === index ? "bg-wlOrange" : ""
+          }`} // Highlight active menu
           style={{
             animationDelay: `${index * 200}ms`,
           }}
+          onClick={() => handleMenuClick(index)} // Set active menu on click
         >
           {item.label}
         </Link>

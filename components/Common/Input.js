@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { toast, Toaster } from "react-hot-toast";
 
 function Input({
@@ -10,50 +10,52 @@ function Input({
   maxLength,
 }) {
   const [validationMessage, setValidationMessage] = useState("");
+  const debounceTimeout = useRef(null); // To track debounce timeout
+
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
 
     if (type === "number" && maxLength && inputValue.length > maxLength) {
       return; // Prevent further input if maxLength is exceeded
     }
+
+    // Apply debouncing for email validation
     if (type === "email") {
-      validateEmail(inputValue);
+      clearTimeout(debounceTimeout.current);
+      debounceTimeout.current = setTimeout(() => {
+        // validateEmail(inputValue);
+      }, 500); // Adjust debounce delay (in ms) as needed
     }
 
     onChange(e);
   };
 
-  const validateEmail = (email) => {
-    const blockedDomains = ["test.com", "testing.com", "example.com"];
-    
-    if (!email) {
-      setValidationMessage("Field is required.");
-      return;
-    }
-    
-    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(email)) {
-      setValidationMessage("Invalid email address.");
-      return;
-    }
-  
-    const domain = email.split("@")[1];
-    if (blockedDomains.includes(domain)) {
-      setValidationMessage("This email address is not allowed.");
-      return;
-    }
-  
-    // If all validations pass
-    // setValidationMessage("Email is valid.");
-  };
-  
+  // const validateEmail = (email) => {
+  //   const blockedDomains = ["test.com", "testing.com", "example.com"];
+
+  //   if (!email) {
+  //     setValidationMessage("Field is required.");
+  //     return;
+  //   }
+
+  //   if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(email)) {
+  //     setValidationMessage("Invalid email address.");
+  //     return;
+  //   }
+
+  //   const domain = email.split("@")[1];
+  //   if (blockedDomains.includes(domain)) {
+  //     setValidationMessage("This email address is not allowed.");
+  //     return;
+  //   }
+
+  //   // If all validations pass, clear the validation message
+  //   setValidationMessage("");
+  // };
 
   useEffect(() => {
     if (validationMessage) {
-      if (validationMessage === "Email is valid.") {
-        toast.success(validationMessage);
-      } else {
-        toast.error(validationMessage);
-      }
+      toast.error(validationMessage);
     }
   }, [validationMessage]);
 
@@ -133,9 +135,7 @@ function Input({
           id="input-field"
           type={type}
           className={`block w-full rounded-full border bg-white p-2.5 pl-10 pr-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-wlOrange focus:ring-wlOrange dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:ring-wlOrange ${
-            validationMessage === "Field is required." || validationMessage === "Incorrect email format."
-              ? "border-red-500"
-              : "border-gray-300"
+            validationMessage ? "border-red-500" : "border-gray-300"
           }`}
           placeholder={placeholder}
           value={value}

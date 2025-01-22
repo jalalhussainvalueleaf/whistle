@@ -2,6 +2,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 *{
     font-family: "Open Sans", serif;
 }
+
+@keyframes rocket-movement {
+    100% {
+      transform: translate(1200px, -600px);
+    }
+  }
+  @keyframes spin-earth {
+    100% {
+      transform: rotate(-360deg);
+      transition: transform 20s;
+    }
+  }
+  @keyframes move-astronaut {
+    100% {
+      transform: translate(-160px, -160px);
+    }
+  }
+  @keyframes rotate-astronaut {
+    100% {
+      transform: rotate(-720deg);
+    }
+  }
+  @keyframes glow-star {
+    40% {
+      opacity: 0.3;
+    }
+    90%, 100% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }

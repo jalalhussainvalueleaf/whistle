@@ -4,6 +4,7 @@ import Header from "@/components/Common/Header"
 import Sidebar from "@/components/Menu/SideBar"
 import SideMenu from "@/components/Menu/Menu"
 import Footer from '@/components/Footer/Footer';
+import AOS from 'aos';
 
 export default function RootLayout({children}) {
 
@@ -12,6 +13,13 @@ export default function RootLayout({children}) {
   const rotationVideoRef = useRef(null);
   const [footer, setFooter] = useState(false); // State for Footer visibility
   const [showSidebar, setShowSidebar] = useState(false); // State for controlling sidebar visibility
+
+  useEffect(() => {
+    AOS.init({
+      duration: 4000,
+      once: true,
+    });
+  }, []);
 
   // Show Sidebar with smooth transition after Login
   useEffect(() => {
@@ -59,7 +67,7 @@ export default function RootLayout({children}) {
   <Header/>
   
 {children}
-{showSidebar && <Sidebar className="translate-x-0 transition-transform duration-1000 z-50" isHomepage={false} footer={footer} />}
+{showSidebar && <Sidebar className="translate-x-0 transition-transform duration-1000 z-50" isHomepage={false} footer={footer} data-aos="fade-down" />}
 {/* <SideMenu/> */}
 <Footer toggleFooter={toggleFooter} footer={footer}/>
       </>

@@ -1,58 +1,8 @@
 import React, { useEffect, useState } from "react";
+import {data} from "@/utils/data"
 
 const Slider = () => {
-    const data = [
-        {
-            img: "/images/Post-click-analysis.png",
-            title: "Post Click Analysis",
-            description:
-                "The post-click analytics help create, nurture, and tailor campaigns to reach the right audience. Campaign reports are enriched with deep insights. Whistle helps customize campaigns for better prospects and enhances user engagement with SMS.",
-        },
-        {
-            img: "/images/Insight-protocol.png",
-            title: "Insight Protocol",
-            description:
-                "Whistle’s intelligent insights gauge campaign efficiency and optimize data resources. Insights are displayed on the dashboard for quick reference and optimization.",
-        },
-        {
-            img: "/images/Performance-Visit.png",
-            title: "Performance Visit",
-            description:
-                "Performance is measured through campaign conversions. Marketers can assess performance at any time to understand how close they are to campaign objectives.",
-        },
-        {
-            img: "/images/Click-through-rate.png",
-            title: "Click Through Rate",
-            description:
-                "CTRs measure campaign performance and user engagement. Whistle displays real-time click performance, enabling control over deliverables. Greater CTR equals better ROI.",
-        },
-        {
-            img: "/images/Click-through-rate.png",
-            title: "Required Cost Per Action",
-            description:
-                "Set target CPA and monitor spends and returns for instant insights. This feature provides instant profit navigation for campaigns.",
-        },
-        {
-            img: "/images/Click-through-rate.png",
-            title: "Retargeting",
-            description:
-                "Retarget audiences who showed interest in your content. Create a sampling database for analysis and scale up results effectively.",
-        },
-        {
-            img: "/images/Content-based-performance.png",
-            title: "Content Based Performance",
-            description:
-                "Whistle enables A/B testing for SMS content performance. Try multiple SMS content variations for the same campaign and gauge responses.",
-        },
-        {
-            img: "/images/Data-based-performance.png",
-            title: "Data Based Performance",
-            description:
-                "Whistle’s inbuilt intelligence analyzes data set performance. Compare database efficiency and optimize campaign costs by choosing the better-performing dataset.",
-        },
-    ];
-    
-
+  
     const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
@@ -64,7 +14,7 @@ const Slider = () => {
     }, [data.length]);
 
     return (
-        <div className="flex items-center w-full">
+        <div className="flex gap-2 items-center w-full">
         <ul className="list-disc gap-4">
         {data.map((item, index) => (
             <li

@@ -16,11 +16,11 @@ function Page() {
 
   const [showContent, setShowContent] = useState(false); // State for controlling sidebar visibility
 
-  useEffect(() => {
-      setTimeout(() => {
-        setShowContent(true); // Show Sidebar with animation
-      }, 100); // Delay for smooth effect
-  });
+  // useEffect(() => {
+  //     setTimeout(() => {
+  //       setShowContent(true); // Show Sidebar with animation
+  //     }, 4000); // Delay for smooth effect
+  // });
 
 
   // Show Sidebar with smooth transition after Login
@@ -28,7 +28,7 @@ function Page() {
 
     setTimeout(() => {
       setShowContent(true); // Show Sidebar with animation
-    }, 100); // Delay for smooth effect
+    }, 5000); // Delay for smooth effect
 
 
       setTimeout(() => {
@@ -57,7 +57,7 @@ function Page() {
         muted
         onEnded={handleVideoEnd} // Trigger when intro video finishes
       >
-        <source src="/video/Earth_Side_Rotation.webm" type="video/webm" />
+        <source src="/video/Millenium_Falcon_Earth_Static.webm" type="video/webm" />
       </video>
 
       {/* Background Video (Rotation, Looping) */}

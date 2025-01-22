@@ -18,7 +18,7 @@ function Page() {
   useEffect(() => {
       setTimeout(() => {
         setShowContent(true); // Show Sidebar with animation
-      }, 100); // Delay for smooth effect
+      }, 4000); // Delay for smooth effect
   });
 
 
@@ -27,7 +27,7 @@ function Page() {
 
     setTimeout(() => {
       setShowContent(true); // Show Sidebar with animation
-    }, 100); // Delay for smooth effect
+    }, 4000); // Delay for smooth effect
 
 
       setTimeout(() => {
@@ -75,7 +75,7 @@ function Page() {
 
      {/* Content */}
   {/* Content */}
-  {showContent && <div className='p-12 right-0 z-50 absolute w-8/12 space-y-4 flex flex-col items-center justify-center h-screen transition-all ease-in-out'>  
+  {showContent && <div className='p-12 right-0 z-50 absolute w-8/12 space-y-4 flex flex-col items-center justify-center h-screen transition-all ease-in-out '>  
       <div className="bg-black bg-opacity-50 p-4 rounded-lg space-y-4 h-[500px] overflow-scroll text-white ">
         <p className='text-wlOrange font-semibold'>Introducing A2P Messaging Services by Whistle</p>
         <p>Experience Incredible SMS communication with Whistle Application-to-Person (A2P) Enterprise Messaging Services.</p>
