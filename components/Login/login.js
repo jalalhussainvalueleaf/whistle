@@ -44,7 +44,7 @@ export default function Login() {
         setIsPasswordEntered(value.trim().length > 0);
       }
     },
-    [setValue, trigger, getFieldState]
+    [setValue, trigger, getFieldState],
   );
 
   // Form submission handler
@@ -62,7 +62,10 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto w-3/12 space-y-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="mx-auto space-y-4 px-4 lg:w-3/12 lg:px-0"
+    >
       {/* Email Input */}
       <Input
         type="email"
@@ -88,7 +91,7 @@ export default function Login() {
       {/* Login Button */}
       {isEmailValid && isPasswordEntered && (
         <Button
-          btnName="Login"
+          btnName="Sign in"
           isLoading={isSubmitting}
           disabled={isSubmitting || Object.keys(errors).length > 0}
         />

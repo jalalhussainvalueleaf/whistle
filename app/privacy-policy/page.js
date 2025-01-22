@@ -1,13 +1,12 @@
-'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import Header from "@/components/Common/Header"
-import Sidebar from "@/components/Menu/SideBar"
-import SideMenu from "@/components/Menu/Menu"
-import Footer from '@/components/Footer/Footer';
-import Slider from "@/components/Slider"
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import Header from "@/components/Common/Header";
+import Sidebar from "@/components/Menu/SideBar";
+import SideMenu from "@/components/Menu/Menu";
+import Footer from "@/components/Footer/Footer";
+import Slider from "@/components/Slider";
 
 function Page() {
-
   const [videoFinished, setVideoFinished] = useState(false);
   const introVideoRef = useRef(null);
   const rotationVideoRef = useRef(null);
@@ -22,31 +21,27 @@ function Page() {
   //     }, 4000); // Delay for smooth effect
   // });
 
-
   // Show Sidebar with smooth transition after Login
   useEffect(() => {
-
     setTimeout(() => {
       setShowContent(true); // Show Sidebar with animation
     }, 1000); // Delay for smooth effect
 
-
-      setTimeout(() => {
-        setShowSidebar(true); // Show Sidebar with animation
-      }, 3000); // Delay for smooth effect
+    setTimeout(() => {
+      setShowSidebar(true); // Show Sidebar with animation
+    }, 3000); // Delay for smooth effect
   });
 
+  // Play rotation video after intro finishes
+  const handleVideoEnd = () => {
+    setVideoFinished(true);
+  };
 
-      // Play rotation video after intro finishes
-      const handleVideoEnd = () => {
-        setVideoFinished(true);
-      };
+  const toggleFooter = () => {
+    setFooter(!footer);
+  };
 
-      const toggleFooter = () => {
-        setFooter(!footer);
-    };
-
-const terms=`
+  const terms = `
         <h3 className="text-wlOrange text-2xl font-semibold">PRIVACY POLICY</h3>
         <p class="text-xl text-wlOrange">Thank you for visiting Whistle.</p>
         <p>We at Whistle are committed to protecting the information that you share with us, and explaining how we collect, process, and share that information online. When you use our services, you’re trusting us with your information. We understand this is a big responsibility and work hard to protect your information and entrust to keep it secure.</p>
@@ -230,12 +225,10 @@ const terms=`
         <br><br>
     </div>`;
 
-
-
   return (
     <div className="relative h-screen overflow-hidden bg-black">
- {/* Background Video (Intro) */}
- <video
+      {/* Background Video (Intro) */}
+      <video
         ref={introVideoRef}
         className="absolute left-0 top-0 size-full object-cover"
         autoPlay
@@ -253,22 +246,34 @@ const terms=`
         autoPlay
         loop
         muted
-        style={{ display: videoFinished ? 'block' : 'none' }} // Hide until intro finishes
+        style={{ display: videoFinished ? "block" : "none" }} // Hide until intro finishes
       >
         <source src="/video/Earth_Side_Rotation.webm" type="video/mp4" />
       </video>
 
-  <Header/>
+      <Header />
 
-     {/* Content */}
-  {/* Content */}
-  {showContent && <div className='absolute right-0 z-50 flex h-screen w-8/12 flex-col items-center justify-center space-y-4 p-12 text-white transition-all ease-in-out' ><div className="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 h-[600px] w-full space-y-4 overflow-auto rounded-lg bg-black bg-opacity-50 p-4 text-white" dangerouslySetInnerHTML={{__html:terms}}/> </div> }
-  
+      {/* Content */}
+      {/* Content */}
+      {showContent && (
+        <div className="absolute right-0 z-50 flex h-screen flex-col items-center justify-center space-y-4 text-white transition-all ease-in-out lg:w-8/12 lg:p-12">
+          <div
+            className="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 h-[600px] w-full space-y-4 overflow-auto rounded-lg bg-black bg-opacity-50 p-4 text-white"
+            dangerouslySetInnerHTML={{ __html: terms }}
+          />{" "}
+        </div>
+      )}
 
-{showSidebar && <Sidebar className="z-50 translate-x-0 transition-transform duration-1000" isHomepage={false} footer={footer} />}
-{/* <SideMenu/> */}
-<Footer toggleFooter={toggleFooter} footer={footer}/>
-      </div>
+      {showSidebar && (
+        <Sidebar
+          className="z-50 translate-x-0 transition-transform duration-1000"
+          isHomepage={false}
+          footer={footer}
+        />
+      )}
+      {/* <SideMenu/> */}
+      <Footer toggleFooter={toggleFooter} footer={footer} />
+    </div>
   );
 }
-export default Page
+export default Page;

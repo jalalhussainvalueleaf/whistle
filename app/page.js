@@ -1,15 +1,15 @@
-'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import dynamic from 'next/dynamic'; // Import dynamic for conditional client-side rendering
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import dynamic from "next/dynamic"; // Import dynamic for conditional client-side rendering
 import Login from "@/components/Login/login";
 import Share from "@/components/SocialMedia/Share";
 import Sidebar from "@/components/Menu/SideBar";
 // import Lottie from "lottie-react";
 import WhistleLogo from "@/public/Whistle_large_logo.json"; // Ensure the path is correct
-import Header from "@/components/Common/Header"
-import Footer from '@/components/Footer/Footer';
+import Header from "@/components/Common/Header";
+import Footer from "@/components/Footer/Footer";
 // Dynamically import Lottie with SSR disabled
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 const App = () => {
   const [videoFinished, setVideoFinished] = useState(false);
@@ -27,6 +27,17 @@ const App = () => {
 
   // Show Sidebar with smooth transition after Login
   useEffect(() => {
+    //const pageCount =
+    const pageCount = Number(sessionStorage.getItem("pageCount") || 0);
+    sessionStorage.setItem("pageCount", pageCount + 1);
+    if (pageCount > 1) {
+      setShowLogin(true);
+    } else {
+      setTimeout(() => {
+        setShowLogin(true); // Show Sidebar with animation
+      }, 5000); // Delay for smooth effect
+    }
+
     if (showLogin) {
       setTimeout(() => {
         setShowSidebar(true); // Show Sidebar with animation
@@ -74,7 +85,7 @@ const App = () => {
         autoPlay
         loop
         muted
-        style={{ display: videoFinished ? 'block' : 'none' }} // Hide until intro finishes
+        style={{ display: videoFinished ? "block" : "none" }} // Hide until intro finishes
       >
         <source src="/video/earth_rotation.mp4" type="video/mp4" />
       </video>
@@ -82,7 +93,9 @@ const App = () => {
       {/* Content */}
       <div className="relative inset-0 z-10 py-40">
         {/* Lottie Animation below the logo */}
-        <div className={`mx-auto mt-10 transition-all duration-300 ease-in-out ${showLogin ? 'w-[400px] -translate-y-1 ' : 'w-[800px] translate-y-1 '}`}>
+        <div
+          className={`mx-auto mt-10 transition-all duration-300 ease-in-out ${showLogin ? "w-[400px] -translate-y-1 " : "w-[800px] translate-y-1 "}`}
+        >
           <Lottie
             loop={false}
             animationData={WhistleLogo} // Directly use the imported JSON data
@@ -94,7 +107,12 @@ const App = () => {
 
         {/* Smooth transition Sidebar after Login */}
       </div>
-      {showSidebar && <Sidebar className="translate-x-0 transition-transform duration-1000 z-50" isHomepage={true} />}
+      {showSidebar && (
+        <Sidebar
+          className="z-50 translate-x-0 transition-transform duration-1000"
+          isHomepage={true}
+        />
+      )}
       {/* <Sidebar /> */}
       <Share />
       <Footer toggleFooter={toggleFooter} footer={footer} />

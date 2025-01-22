@@ -1,13 +1,12 @@
-'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import Header from "@/components/Common/Header"
-import Sidebar from "@/components/Menu/SideBar"
-import SideMenu from "@/components/Menu/Menu"
-import Footer from '@/components/Footer/Footer';
-import Slider from "@/components/Slider"
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import Header from "@/components/Common/Header";
+import Sidebar from "@/components/Menu/SideBar";
+import SideMenu from "@/components/Menu/Menu";
+import Footer from "@/components/Footer/Footer";
+import Slider from "@/components/Slider";
 
 function Page() {
-
   const [videoFinished, setVideoFinished] = useState(false);
   const introVideoRef = useRef(null);
   const rotationVideoRef = useRef(null);
@@ -22,31 +21,27 @@ function Page() {
   //     }, 4000); // Delay for smooth effect
   // });
 
-
   // Show Sidebar with smooth transition after Login
   useEffect(() => {
-
     setTimeout(() => {
       setShowContent(true); // Show Sidebar with animation
     }, 1000); // Delay for smooth effect
 
-
-      setTimeout(() => {
-        setShowSidebar(true); // Show Sidebar with animation
-      }, 3000); // Delay for smooth effect
+    setTimeout(() => {
+      setShowSidebar(true); // Show Sidebar with animation
+    }, 3000); // Delay for smooth effect
   });
 
+  // Play rotation video after intro finishes
+  const handleVideoEnd = () => {
+    setVideoFinished(true);
+  };
 
-      // Play rotation video after intro finishes
-      const handleVideoEnd = () => {
-        setVideoFinished(true);
-      };
+  const toggleFooter = () => {
+    setFooter(!footer);
+  };
 
-      const toggleFooter = () => {
-        setFooter(!footer);
-    };
-
-const terms=`
+  const terms = `
         <h3 class="text-wlOrange text-xl font-semibold">TERMS AND CONDITIONS :</h3>
        <p>The term “you,” “your,” and “yours” refer to the customer. WValue Martech Private Limited incorporated under the provisions of the Companies Act, 1956, hereinafter referred as “Whistle”, “Company”, “we,” “us,” and “our.” These General Terms and Conditions are governed by our Terms of Service. Our Terms of Service take precedence over any conflicting General Terms and Conditions provision.  By using whistle’s services and whistle website, you consent to the terms and conditions of these general terms and conditions. If you do not agree to these general terms and conditions please do not use the website and/or services.</p>
        <p class="text-wlOrange text-xl font-semibold"> Credit requests &amp; cancellation </p>
@@ -145,12 +140,10 @@ const terms=`
        <img src="/images/muthoot-fincorp.png" alt="Muthoot Fincorp" width="150px" height="150px"/> 
        </ul>`;
 
-
-
   return (
     <div class="relative h-screen overflow-hidden bg-black">
- {/* Background Video (Intro) */}
- <video
+      {/* Background Video (Intro) */}
+      <video
         ref={introVideoRef}
         class="absolute left-0 top-0 size-full object-cover"
         autoPlay
@@ -168,24 +161,34 @@ const terms=`
         autoPlay
         loop
         muted
-        style={{ display: videoFinished ? 'block' : 'none' }} // Hide until intro finishes
+        style={{ display: videoFinished ? "block" : "none" }} // Hide until intro finishes
       >
         <source src="/video/Earth_Side_Rotation.webm" type="video/mp4" />
       </video>
 
-  <Header/>
+      <Header />
 
-     {/* Content */}
-  {/* Content */}
-  {showContent && <div className='absolute right-0 z-50 flex h-screen w-8/12 flex-col items-center justify-center space-y-4 p-12 transition-all ease-in-out' >
-  <div className="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 h-[600px] w-full space-y-4 overflow-auto rounded-lg bg-black/50 p-4 text-white" dangerouslySetInnerHTML={{__html:terms}}/> 
-  </div> }
-  
+      {/* Content */}
+      {/* Content */}
+      {showContent && (
+        <div className="absolute right-0 z-50 flex h-screen w-8/12 flex-col items-center justify-center space-y-4 p-12 transition-all ease-in-out">
+          <div
+            className="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 h-[600px] w-full space-y-4 overflow-auto rounded-lg bg-black/50 p-4 text-white"
+            dangerouslySetInnerHTML={{ __html: terms }}
+          />
+        </div>
+      )}
 
-{showSidebar && <Sidebar className="z-50 translate-x-0 transition-transform duration-1000" isHomepage={false} footer={footer} />}
-{/* <SideMenu/> */}
-<Footer toggleFooter={toggleFooter} footer={footer}/>
-      </div>
+      {showSidebar && (
+        <Sidebar
+          className="z-50 translate-x-0 transition-transform duration-1000"
+          isHomepage={false}
+          footer={footer}
+        />
+      )}
+      {/* <SideMenu/> */}
+      <Footer toggleFooter={toggleFooter} footer={footer} />
+    </div>
   );
 }
-export default Page
+export default Page;

@@ -2,84 +2,76 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 export const menuItems = [
-    {
-      label: "About Us",
-      url: "/about-us",
-      
-    },
-    {
-      label: "Messaging Services",
-      url: "/messaging-services",
-      
-    },
-    {
-      label: "Product Features",
-      url: "/product-features",
-      
-    },
-    {
-      label: "Press Releases",
-      url: "/press-releases",
-      
-    },
-    {
-      label: "FAQs",
-      url: "/faqs",
-      
-    },
-    {
-      label: "Case Studies",
-      url: "/case-study",
-      
-    },
-    {
-      label: "Tracking Pixel",
-      url: "/track-conversion",
-      
-    },
-    {
-      label: "Contact Us",
-      url: "contact-us",
-      
-    },
-  ];
+  {
+    label: "About Us",
+    url: "/about-us",
+  },
+  {
+    label: "Messaging Services",
+    url: "/messaging-services",
+  },
+  {
+    label: "Product Features",
+    url: "/product-features",
+  },
+  {
+    label: "Press Releases",
+    url: "/press-releases",
+  },
+  {
+    label: "FAQs",
+    url: "/faqs",
+  },
+  {
+    label: "Case Studies",
+    url: "/case-study",
+  },
+  {
+    label: "Tracking Pixel",
+    url: "/track-conversion",
+  },
+  {
+    label: "Contact Us",
+    url: "contact-us",
+  },
+];
 export const socialMediaData = [
-    { 
-      icon: FaFacebookF, 
-      link: "https://www.facebook.com/WhistleIndia/", 
-      className: "bg-wlOrange p-1 rounded-sm hover:scale-110", 
-      color: "white", 
-      title: "Facebook" 
-    },
-    { 
-      icon: FaLinkedinIn, 
-      link: "https://www.linkedin.com/company/wvalue-martech-private-limited/", 
-      className: "bg-wlOrange p-1 rounded-sm hover:scale-110", 
-      color: "white", 
-      title: "LinkedIn" 
-    },
-    { 
-      icon: FaInstagram, 
-      link: "https://instagram.com/whistle_martech?igshid=OGQ2MjdiOTE=", 
-      className: "bg-wlOrange p-1 rounded-sm hover:scale-110", 
-      color: "white", 
-      title: "Instagram" 
-    },
-    { 
-      icon: FaXTwitter, 
-      link: "https://twitter.com/Whistle_Martech", 
-      className: "bg-wlOrange p-1 rounded-sm hover:scale-110", 
-      color: "white", 
-      title: "Twitter" 
-    },
-    { 
-      icon: FaYoutube, 
-      link: "https://www.youtube.com/@whistlemartech6350", 
-      className: "bg-wlOrange p-1 rounded-sm hover:scale-110", 
-      color: "white", 
-      title: "YouTube" 
-    },
-  ];  
+  {
+    icon: FaFacebookF,
+    link: "https://www.facebook.com/WhistleIndia/",
+    className: "bg-wlOrange p-1 rounded-sm hover:scale-110",
+    color: "white",
+    title: "Facebook",
+  },
+  {
+    icon: FaLinkedinIn,
+    link: "https://www.linkedin.com/company/wvalue-martech-private-limited/",
+    className: "bg-wlOrange p-1 rounded-sm hover:scale-110",
+    color: "white",
+    title: "LinkedIn",
+  },
+  {
+    icon: FaInstagram,
+    link: "https://instagram.com/whistle_martech?igshid=OGQ2MjdiOTE=",
+    className: "bg-wlOrange p-1 rounded-sm hover:scale-110",
+    color: "white",
+    title: "Instagram",
+  },
+  {
+    icon: FaXTwitter,
+    link: "https://twitter.com/Whistle_Martech",
+    className: "bg-wlOrange p-1 rounded-sm hover:scale-110",
+    color: "white",
+    title: "Twitter",
+  },
+  {
+    icon: FaYoutube,
+    link: "https://www.youtube.com/@whistlemartech6350",
+    className: "bg-wlOrange p-1 rounded-sm hover:scale-110",
+    color: "white",
+    title: "YouTube",
+  },
+];
 
 export const footerLinks = [
   [
@@ -94,8 +86,16 @@ export const footerLinks = [
     { label: "Tracking Pixel", url: "/track-conversion" },
   ],
   [
-    { label: "Publisher Login", url: "https://publisher.whistle.mobi/", target: "_blank" },
-    { label: "SMS", url: "https://whistle.mobi/Adtech?utm_source=SEO&utm_medium=organic&utm_campaign=whistle feed&utm_term=website monetization", target: "_blank" },
+    {
+      label: "Publisher Login",
+      url: "https://publisher.whistle.mobi/",
+      target: "_blank",
+    },
+    {
+      label: "SMS",
+      url: "https://whistle.mobi/Adtech?utm_source=SEO&utm_medium=organic&utm_campaign=whistle feed&utm_term=website monetization",
+      target: "_blank",
+    },
     { label: "Privacy Policy", url: "/privacy-policy" },
   ],
   [
@@ -268,8 +268,7 @@ export const faqData = [
   },
   {
     id: 6,
-    question:
-      "What is the importance of Campaign Data in creating a campaign?",
+    question: "What is the importance of Campaign Data in creating a campaign?",
     link: "https://whistle.mobi/home/faq_details/importance-of-camp-data",
   },
   {
@@ -306,8 +305,7 @@ export const faqData = [
   },
   {
     id: 13,
-    question:
-      "What is the importance of My Profile while creating campaign?",
+    question: "What is the importance of My Profile while creating campaign?",
     link: "https://whistle.mobi/home/faq_details/importance-of-my-profile",
   },
   {
@@ -319,63 +317,63 @@ export const faqData = [
 ];
 
 export const data = [
-        {
-            img: "/images/Post-click-analysis.png",
-            title: "Post Click Analysis",
-            description:
-                "The post-click analytics help create, nurture, and tailor campaigns to reach the right audience. Campaign reports are enriched with deep insights. Whistle helps customize campaigns for better prospects and enhances user engagement with SMS.",
-        },
-        {
-            img: "/images/Insight-protocol.png",
-            title: "Insight Protocol",
-            description:
-                "Whistle’s intelligent insights gauge campaign efficiency and optimize data resources. Insights are displayed on the dashboard for quick reference and optimization.",
-        },
-        {
-            img: "/images/Performance-Visit.png",
-            title: "Performance Visit",
-            description:
-                "Performance is measured through campaign conversions. Marketers can assess performance at any time to understand how close they are to campaign objectives.",
-        },
-        {
-            img: "/images/Click-through-rate.png",
-            title: "Click Through Rate",
-            description:
-                "CTRs measure campaign performance and user engagement. Whistle displays real-time click performance, enabling control over deliverables. Greater CTR equals better ROI.",
-        },
-        {
-            img: "/images/Click-through-rate.png",
-            title: "Required Cost Per Action",
-            description:
-                "Set target CPA and monitor spends and returns for instant insights. This feature provides instant profit navigation for campaigns.",
-        },
-        {
-            img: "/images/Click-through-rate.png",
-            title: "Retargeting",
-            description:
-                "Retarget audiences who showed interest in your content. Create a sampling database for analysis and scale up results effectively.",
-        },
-        {
-            img: "/images/Content-based-performance.png",
-            title: "Content Based Performance",
-            description:
-                "Whistle enables A/B testing for SMS content performance. Try multiple SMS content variations for the same campaign and gauge responses.",
-        },
-        {
-            img: "/images/Data-based-performance.png",
-            title: "Data Based Performance",
-            description:
-                "Whistle’s inbuilt intelligence analyzes data set performance. Compare database efficiency and optimize campaign costs by choosing the better-performing dataset.",
-        },
-    ];
+  {
+    img: "/images/Post-click-analysis.png",
+    title: "Post Click Analysis",
+    description:
+      "The post-click analytics help create, nurture, and tailor campaigns to reach the right audience. Campaign reports are enriched with deep insights. Whistle helps customize campaigns for better prospects and enhances user engagement with SMS.",
+  },
+  {
+    img: "/images/Insight-protocol.png",
+    title: "Insight Protocol",
+    description:
+      "Whistle’s intelligent insights gauge campaign efficiency and optimize data resources. Insights are displayed on the dashboard for quick reference and optimization.",
+  },
+  {
+    img: "/images/Performance-Visit.png",
+    title: "Performance Visit",
+    description:
+      "Performance is measured through campaign conversions. Marketers can assess performance at any time to understand how close they are to campaign objectives.",
+  },
+  {
+    img: "/images/Click-through-rate.png",
+    title: "Click Through Rate",
+    description:
+      "CTRs measure campaign performance and user engagement. Whistle displays real-time click performance, enabling control over deliverables. Greater CTR equals better ROI.",
+  },
+  {
+    img: "/images/Click-through-rate.png",
+    title: "Required Cost Per Action",
+    description:
+      "Set target CPA and monitor spends and returns for instant insights. This feature provides instant profit navigation for campaigns.",
+  },
+  {
+    img: "/images/Click-through-rate.png",
+    title: "Retargeting",
+    description:
+      "Retarget audiences who showed interest in your content. Create a sampling database for analysis and scale up results effectively.",
+  },
+  {
+    img: "/images/Content-based-performance.png",
+    title: "Content Based Performance",
+    description:
+      "Whistle enables A/B testing for SMS content performance. Try multiple SMS content variations for the same campaign and gauge responses.",
+  },
+  {
+    img: "/images/Data-based-performance.png",
+    title: "Data Based Performance",
+    description:
+      "Whistle’s inbuilt intelligence analyzes data set performance. Compare database efficiency and optimize campaign costs by choosing the better-performing dataset.",
+  },
+];
 
-
-    export const caseStudy = [
-      {
-        category: "Fintech",
-        industry: "Personal Loan",
-        highlight: "Bangalore-based fintech startup onboarded 40% of its customers in just 4 months.",
-        description: `<p>Bangalore-based Fintech startup onboarded 40% customers in 4 months.</p>
+export const caseStudy = [
+  {
+    category: "Fintech",
+    industry: "Personal Loan",
+    highlight:
+      "Bangalore-based fintech startup onboarded 40% of its customers in just 4 months.",
+    description: `<p>Bangalore-based Fintech startup onboarded 40% customers in 4 months.</p>
     <p><strong class="text-wlOrange">Brand:</strong> A Bangalore-based Fintech startup offering personal loans with strong funding and a strong leadership team.</p>
     
     <p><strong class="text-wlOrange">Challenge:</strong> The brand believed that Mobile Marketing (SMS) could create the most economical brand awareness and deliver optimal cost per acquisition at scale. However, earlier campaigns didn’t yield the desired results or reinforce the power of SMS.</p>
@@ -390,12 +388,13 @@ export const data = [
       <li>Minimized spamming, safeguarding the brand image, and maximizing ROI.</li>
     </ul>
     </p>`,
-      },
-      {
-        category: "E-Commerce",
-        industry: "Native Foods",
-        highlight: "An e-commerce brand successfully reduced its lead acquisition cost by 28%.",
-        description: `<p>An e-commerce brand reduced its lead acquisition cost by 28%.</p>
+  },
+  {
+    category: "E-Commerce",
+    industry: "Native Foods",
+    highlight:
+      "An e-commerce brand successfully reduced its lead acquisition cost by 28%.",
+    description: `<p>An e-commerce brand reduced its lead acquisition cost by 28%.</p>
     <p><strong class="text-wlOrange">Brand:</strong> A popular e-commerce brand from the South offering native foods.</p>
     
     <p><strong class="text-wlOrange">Challenge:</strong> The brand believed its offering was unique and demand-worthy but was unsure how to effectively tap the audience in specific regions of southern India.</p>
@@ -409,12 +408,13 @@ export const data = [
       <li>Increased brand awareness, sales, and ROI.</li>
     </ul>
     </p>`,
-      },
-      {
-        category: "Retail",
-        industry: "Apparel Store",
-        highlight: "An apparel store achieved a 50% click-through rate (CTR) using Whistle’s innovative feature.",
-        description: `<p>An apparel store achieved a 50% CTR using Whistle's feature.</p>
+  },
+  {
+    category: "Retail",
+    industry: "Apparel Store",
+    highlight:
+      "An apparel store achieved a 50% click-through rate (CTR) using Whistle’s innovative feature.",
+    description: `<p>An apparel store achieved a 50% CTR using Whistle's feature.</p>
     <p><strong class="text-wlOrange">Brand:</strong> A recently launched South Indian apparel store.</p>
     
     <p><strong class="text-wlOrange">Challenge:</strong> The brand aimed to expand its customer base in Vijayawada, a Tier 2 city in India, by reaching newer audiences.</p>
@@ -429,12 +429,5 @@ export const data = [
       <li>Increased revenue and profits.</li>
     </ul>
     </p>`,
-      },
-    ];
-    
-
-    
-
-
-
-  
+  },
+];

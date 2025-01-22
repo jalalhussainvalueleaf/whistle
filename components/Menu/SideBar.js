@@ -59,12 +59,12 @@ const CircularMenu = ({ isHomepage, footer }) => {
   if (isHomepage && !footer) {
     // Render a vertical menu for the homepage
     return (
-      <div className="absolute top-0 h-screen z-40 flex justify-center items-center gap-4 left-[0px]">
-        <ul className="space-y-4 p-6 gap-4">
+      <div className="absolute left-0 top-0 z-40 hidden h-screen items-center justify-center gap-4 lg:flex">
+        <ul className="gap-4 space-y-4 p-6">
           {menuItems.map((item, index) => (
             <li
               key={index}
-              className={`space-y-4 text-white w-full translate-y-5 animate-fade-up rounded-full px-2 py-2 opacity-0 hover:bg-wlOrange ${
+              className={`w-full translate-y-5 animate-fade-up space-y-4 rounded-full p-2 text-white opacity-0 hover:bg-wlOrange ${
                 index + 1 * 100
               } ${activeIndex === index ? "bg-wlOrange" : ""}`} // Highlight active menu
               style={{ animationDelay: `${index * 200}ms` }}
@@ -80,13 +80,13 @@ const CircularMenu = ({ isHomepage, footer }) => {
 
   // Render the circular menu for other pages
   return (
-    <div className="-left-[380px] top-[80px] z-40 justify-center items-center gap-4 absolute">
+    <div className="absolute -left-[380px] top-[80px] z-40 hidden items-center justify-center gap-4 lg:block">
       {menuItems.map((item, index) => (
         <Link
           key={index}
           id={`link-${index}`}
           href={item.url}
-          className={`space-y-4 text-white w-[180px] translate-y-5 animate-fade-up rounded-full px-2 py-2 opacity-0 hover:bg-wlOrange ${pathname === item.url?'bg-wlOrange':''} ${
+          className={`w-[180px] translate-y-5 animate-fade-up space-y-4 rounded-full p-2 text-white opacity-0 hover:bg-wlOrange ${pathname === item.url ? "bg-wlOrange" : ""} ${
             activeIndex === index ? "bg-wlOrange" : ""
           }`} // Highlight active menu
           style={{

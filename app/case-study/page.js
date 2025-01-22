@@ -1,8 +1,8 @@
-'use client';
-import React, { useState, useRef, useEffect } from 'react';
+"use client";
+import React, { useState, useRef, useEffect } from "react";
 import Header from "@/components/Common/Header";
 import Sidebar from "@/components/Menu/SideBar";
-import Footer from '@/components/Footer/Footer';
+import Footer from "@/components/Footer/Footer";
 import { caseStudy } from "@/utils/data";
 
 function Page() {
@@ -48,7 +48,10 @@ function Page() {
         muted
         onEnded={handleVideoEnd}
       >
-        <source src="/video/Earth_Fighter_Rocket_Earth_Static.webm" type="video/webm" />
+        <source
+          src="/video/Earth_Fighter_Rocket_Earth_Static.webm"
+          type="video/webm"
+        />
       </video>
 
       {/* Background Video (Rotation, Looping) */}
@@ -57,7 +60,7 @@ function Page() {
         autoPlay
         loop
         muted
-        style={{ display: videoFinished ? 'block' : 'none' }}
+        style={{ display: videoFinished ? "block" : "none" }}
       >
         <source src="/video/Earth_Side_Rotation.webm" type="video/mp4" />
       </video>
@@ -65,19 +68,21 @@ function Page() {
       <Header />
 
       {/* Content */}
-      <div className="z-0 relative">
+      <div className="relative z-0">
         {showContent && (
-          <div className="p-12 right-0 z-50 absolute w-8/12 space-y-4 flex flex-col items-center justify-center h-screen">
+          <div className="absolute right-0 z-50 flex min-h-screen flex-col items-center justify-center space-y-4 lg:w-8/12 lg:p-12">
             <div
-              className={`bg-black bg-opacity-50 p-4 rounded-lg w-full ${
-                expandedIndex !== null ? 'grid-cols-1' : 'grid-cols-2'
+              className={`w-full rounded-lg bg-black bg-opacity-50 p-4 ${
+                expandedIndex !== null ? "grid-cols-1" : "lg:grid-cols-2"
               } grid gap-4`}
             >
               {caseStudy.map((item, index) =>
                 expandedIndex === null || expandedIndex === index ? (
                   <div
-                    className={`p-6 border rounded-lg shadow min-h-[200px] space-y-10 ${
-                      expandedIndex === index ? 'bg-gray-200 transition-all ease-out' : 'bg-gray-200'
+                    className={`min-h-[200px] space-y-10 rounded-lg border p-6 shadow ${
+                      expandedIndex === index
+                        ? "bg-gray-200 transition-all ease-out"
+                        : "bg-gray-200"
                     }`}
                     key={index}
                   >
@@ -87,14 +92,17 @@ function Page() {
                           {item.highlight}
                         </h5>
                         <div className="flex justify-between pb-4">
-                          <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                          <span className="rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
                             {item.category}
                           </span>
-                          <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                          <span className="rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
                             {item.industry}
                           </span>
                         </div>
-                        <p className="text-sm" dangerouslySetInnerHTML={{__html:item.description}}/>
+                        <p
+                          className="text-sm"
+                          dangerouslySetInnerHTML={{ __html: item.description }}
+                        />
                         <button
                           className="text-sm text-wlOrange"
                           onClick={handleBack}
@@ -108,10 +116,10 @@ function Page() {
                           {item.highlight}
                         </h5>
                         <div className="flex justify-between pb-4">
-                          <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                          <span className="rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
                             {item.category}
                           </span>
-                          <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                          <span className="rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
                             {item.industry}
                           </span>
                         </div>
@@ -124,7 +132,7 @@ function Page() {
                       </>
                     )}
                   </div>
-                ) : null
+                ) : null,
               )}
             </div>
           </div>
@@ -133,7 +141,7 @@ function Page() {
 
       {showSidebar && (
         <Sidebar
-          className="translate-x-0 transition-transform duration-1000 z-50"
+          className="z-50 translate-x-0 transition-transform duration-1000"
           isHomepage={false}
           footer={footer}
         />
